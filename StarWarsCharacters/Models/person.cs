@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace StarWarsCharacters.Models
 {
-    public class person
+    public class Person
     {
         public string name { get; set; }
         public string height { get; set; }
