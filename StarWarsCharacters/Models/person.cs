@@ -21,5 +21,6 @@ namespace StarWarsCharacters.Models
         public DateTime created { get; set; }
         public DateTime edited { get; set; }
         public string url { get; set; }
+        public string Id { get; set; }
     }
 }

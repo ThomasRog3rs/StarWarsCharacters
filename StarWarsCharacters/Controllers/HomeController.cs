@@ -20,6 +20,7 @@ namespace StarWarsCharacters.Controllers
 
         public IActionResult Index()
         {
+            ViewBag.People = Helpers.APICalls.GetAllPeople();
             return View();
         }
 
