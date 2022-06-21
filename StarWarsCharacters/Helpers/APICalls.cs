@@ -16,6 +16,18 @@ namespace StarWarsCharacters.Helpers
             public List<Person> Results { get; set; }
         }
 
+        private static List<Person> AddIds(List<Person> people)
+        {
+            //Set the Id for each person
+            for (int i = 0; i < people.Count; i++)
+            {
+                int id = i + 1;
+                people[i].Id = id.ToString();
+            }
+
+            return people;
+        }
+
         public static List<Person> GetAllPeople()
         {
             //Api endpoint to get all people (first page only)
@@ -48,11 +60,7 @@ namespace StarWarsCharacters.Helpers
             }
 
             //Set the Id for each person
-            for (int i = 0; i < people.Count; i++)
-            {
-                int id = i + 1;
-                people[i].Id = id.ToString();
-            }
+            people = AddIds(people);
 
             return people; //Return the List of people
         }
