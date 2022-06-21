@@ -24,6 +24,13 @@ namespace StarWarsCharacters.Controllers
             return View();
         }
 
+        [Route("person/{id}")]
+        public IActionResult Person(string id)
+        {
+            ViewBag.Person = Helpers.APICalls.GetPerson(id);
+            return View();
+        }
+
         public IActionResult Privacy()
         {
             return View();

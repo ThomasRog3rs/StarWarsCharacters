@@ -64,5 +64,27 @@ namespace StarWarsCharacters.Helpers
 
             return people; //Return the List of people
         }
+
+        public static Person GetPerson(string id)
+        {
+            //Set the endpoint for this person
+            string endPoint = "https://swapi.dev/api/people/" + id;
+
+            //Request the data from the endpoint
+            HttpWebRequest request = WebRequest.Create(endPoint) as HttpWebRequest;
+
+            //Put the response in a json string
+            string jsonString = "";
+            using (HttpWebResponse response = request.GetResponse() as HttpWebResponse)
+            {
+                StreamReader reader = new StreamReader(response.GetResponseStream());
+                jsonString = reader.ReadToEnd();
+            }
+
+            //Map the JSON string to the Person Object
+            Person person = JsonConvert.DeserializeObject<Person>(jsonString);
+
+            return person;
+        }
     }
 }
